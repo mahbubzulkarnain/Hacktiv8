@@ -1,5 +1,5 @@
 /*
-PT XYZ memiliki beberapa cabang usaha masing masing cabang meberikan laporan bulanan income dan outcome mereka, 
+PT XYZ memiliki beberapa cabang usaha masing masing cabang meberikan laporan bulanan income dan outcome mereka,
 data ini telah terkumpul dalam bentuk berikut
 
 EXAMPLE:
@@ -24,7 +24,7 @@ branches = [
 dari data tersebut tampikan hasil income dan outcome perbulan masing masing cabang dengan formatsebagai berikut
 | {bulan} | Branch-1 IN: {income} OUTCOME: {outcome} | Branch-2 IN: {income} OUT{outcome} | Branch-3 IN: {income} OUT{outcome} |
 
-OUTPUT: 
+OUTPUT:
 
 | jan | Branch-1 IN: 1200 | OUT: 500 | Branch-2 IN: 1200 | OUT: 700 | Branch-3 IN: 2000 | OUT: 500 |
 | feb | Branch-1 IN: 1500 | OUT: 700 | Branch-2 IN: 2500 | OUT: 1200 | Branch-3 IN: 1500 | OUT: 600 |
@@ -48,13 +48,12 @@ function printBranch(branches) {
   let output = []
   let temp = ''
   for(let i=0;i < month.length;i++){
-    temp=`| ${month[i]} | Branch-1 IN: ${branches[0][0][i]} | OUT: ${branches[0][1][i]} |`
-    if(!!branches[1]){
-      temp+=`Branch-2 IN: ${branches[1][0][i]} | OUT: ${branches[1][1][i]} |`
-    }
-    if(!!branches[2]){
-      temp+=` Branch-3 IN: ${branches[2][0][i]} | OUT: ${branches[2][1][i]} |`
-    }
+      temp=`| ${month[i]} `
+      for(let j=0;j<branches.length;j++){
+          if(!!branches[j]) {
+              temp += `|Branch-${j+1} IN: ${branches[j][0][i]} | OUT: ${branches[j][1][i]} `
+          }
+      }
     output.push(temp)
   }
   return output.join('\n')
