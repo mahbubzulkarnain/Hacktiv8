@@ -38,12 +38,13 @@ BEGIN
   SET 'i' with 0
   FOR i UNTIL 'i' less than length of 'input'
     IF 'input' of 'i' equal 'G' THAN
-      INCREAMEANT 'gold'
+      INCREAMENT 'gold'
     ELSE IF 'input' of 'i' equal 'S' THAN
-      INCREAMEANT 'silver'  
+      INCREAMENT 'silver'
     ELSE IF 'input' of 'i' equal 'B' THAN
-      INCREAMEANT 'bronze'  
-    ENDIF  
+      INCREAMENT 'bronze'
+    ENDIF
+    INCREAMENT i
   ENDFOR
   SET 'total' with 'gold' * 2 + 'silver' * 1 + 'bronze' / 2
   DISPLAY "jumlah Gold: "+'gold'+", jumlah Silver: "+'silver'+", jumlah Bronze: "+'bronze'+". Dan totalnya adalah: " + 'total'
